@@ -1,0 +1,42 @@
+.land {
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100vh;
+}
+
+.land button {
+    padding: 12px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: gray;
+    color: #203A43;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.land button:hover {
+    background-color: #2C5364;
+    color: white;
+}
+
+.land button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+h1{
+    color: white;
+}

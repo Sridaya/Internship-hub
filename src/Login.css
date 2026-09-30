@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    width: 400px;
+    margin:auto;
+    margin-top: 80px;
+    gap: 10px;
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.em,.pw{
+    padding: 10px;
+    margin: 10px;
+}
+
+.login,.reg{
+    padding: 10px;
+    margin: 10px;
+    background-color:white;
+}
+
+.fp,.re{
+    color: white;
+}
+
+.error {
+    color: #dc2626;
+    font-size: 14px;
+    margin: 0;
+}

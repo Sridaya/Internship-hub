@@ -1,0 +1,25 @@
+.view,
+.Save {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.view {
+    background-color: #2563eb;
+    color: white;
+}
+
+.Save {
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.view:hover,
+.Save:hover {
+    transform: translateY(-2px);
+}

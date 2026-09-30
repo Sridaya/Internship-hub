@@ -1,0 +1,32 @@
+.applications-page {
+    padding: 30px;
+ 
+    min-height: 100vh;
+}
+
+.applications-page h1 {
+    margin-bottom: 25px;
+}
+
+.applications-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.application-card {
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.application-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.application-card p {
+    margin: 8px 0;
+}
