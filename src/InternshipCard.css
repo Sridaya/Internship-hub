@@ -1,5 +1,6 @@
 .view,
-.Save {
+.Save,
+.Apply {
     padding: 10px 18px;
     border: none;
     border-radius: 8px;

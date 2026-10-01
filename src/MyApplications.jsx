@@ -21,34 +21,32 @@ function Myapplications(){
     },[]);
 
     return (
-    <div className="applications-page">
-
+      <div className="applications-page">
         <h1>My Applications</h1>
 
         <div className="applications-container">
-
-            {applications.map((application) => (
-
-                <div className="application-card" key={application.id}>
-
-                    <h3>{application.title}</h3>
-
-                    <p>{application.company}</p>
-
-                    <p>📍 {application.location}</p>
-
-                    <p>📌 {application.status}</p>
-
-                    <p>📅 {application.applied_at}</p>
-
-                </div>
-
-            ))}
-
+          {applications.length === 0 ? (
+            <p className="noapp">No applications yet.</p>
+          ) : (
+            applications.map((application) => (
+              <div className="application-card" key={application.id}>
+                <h3>{application.title}</h3>
+                <p>{application.company}</p>
+                <p>📍 {application.location}</p>
+                <p>📌 {application.status}</p>
+                <p>
+                    📅 Applied on: {
+                        application.applied_at
+                            ? new Date(application.applied_at).toLocaleDateString()
+                            : "Date unavailable"
+                    }
+                </p>
+              </div>
+            ))
+          )}
         </div>
-
-    </div>
-);
+      </div>
+    );
 }
 
 export default Myapplications;

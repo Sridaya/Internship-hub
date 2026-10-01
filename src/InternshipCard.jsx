@@ -9,6 +9,32 @@ function InternshipCard(props){
         localStorage.setItem("savedInternships",JSON.stringify(savedList));
     }
 
+    async function handleApply() {
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const response = await fetch(
+        "http://localhost:4000/api/applications",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                internship_id: props.internship.id
+            })
+        }
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
+        window.open(props.internship.apply_link, "_blank");
+    } else {
+        alert(data.message);
+    }
+}
     return (
       <div className="Card">
         <h3>{props.title}</h3>
@@ -37,6 +63,9 @@ function InternshipCard(props){
             Remove
           </button>
         )}
+        <button className="Apply" onClick={handleApply}>
+          Apply
+        </button>
       </div>
     );
 }
