@@ -230,11 +230,13 @@ app.post("/api/applications",(req,res)=>{
     });
 });
 
-app.get("/api/applications/:user_id",(req,res)=>{
-    const {user_id}=req.params;
+app.get("/api/applications/:user_id", (req, res) => {
+    const { user_id } = req.params;
+
     const result = db.prepare(`
         SELECT
             applications.id,
+            applications.internship_id,
             internships.title,
             internships.company,
             internships.location,
@@ -248,8 +250,7 @@ app.get("/api/applications/:user_id",(req,res)=>{
     `).all(user_id);
 
     res.json(result);
-})
-
+});
 app.listen(4000, () => {
     console.log("Server running on http://localhost:4000");
 });

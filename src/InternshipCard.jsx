@@ -1,6 +1,11 @@
 import "./InternshipCard.css";
+import { useState } from "react";
 
 function InternshipCard(props){
+
+   const [applied, setApplied] = useState(
+     props.appliedIds.includes(props.internship.id)
+   );
 
     function handleSave(){
         const saved =localStorage.getItem("savedInternships");
@@ -30,6 +35,7 @@ function InternshipCard(props){
     const data = await response.json();
 
     if (response.ok) {
+        setApplied(true);
         window.open(props.internship.apply_link, "_blank");
     } else {
         alert(data.message);
@@ -63,9 +69,13 @@ function InternshipCard(props){
             Remove
           </button>
         )}
-        <button className="Apply" onClick={handleApply}>
-          Apply
-        </button>
+        <button
+          className="Apply"
+          onClick={handleApply}
+          disabled={applied}
+      >
+          {applied ? "✓ Applied" : "Apply"}
+      </button>
       </div>
     );
 }

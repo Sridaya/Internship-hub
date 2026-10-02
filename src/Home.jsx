@@ -9,10 +9,12 @@ function Home() {
     const [mode, setMode] = useState("all");
 
     const [internships, setInternships] = useState([]);
+    const [appliedIds, setAppliedIds] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"));
         fetch("http://localhost:4000/api/internships")
             .then((response) => {
                 if (!response.ok) {
@@ -29,6 +31,13 @@ function Home() {
                 setError("Unable to load internships");
                 setLoading(false);
             });
+
+            fetch(`http://localhost:4000/api/applications/${user.id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    const ids = data.map((application) => application.internship_id);
+                    setAppliedIds(ids);
+                });
     }, []);
 
     const filteredInternships = internships.filter((detail) => {
@@ -134,6 +143,7 @@ function Home() {
                             view="View details"
                             save="❤️ Save"
                             internship={detail}
+                            appliedIds={appliedIds}
                         />
                     ))}
             </div>
