@@ -7,6 +7,7 @@ import Landing from './Landing';
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword"
 import Myapplications from "./MyApplications";
+import Settings from "./Settings"
 
 function App(){
 
@@ -26,6 +27,10 @@ function App(){
             <Route
                 path="/Myapplications"
                 element={isLoggedIn ? <Myapplications /> : <Navigate to="/login" />}
+            />
+             <Route
+                path="/Settings"
+                element={isLoggedIn ? <Settings /> : <Navigate to="/login" />}
             />
             <Route path="/" element={<Landing />} />
             <Route path="/forgot-password" element={<ForgotPassword />}/>

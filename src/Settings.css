@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+.settings-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+    color: #fff;
+    padding: 40px;
+}
+
+.settings-page h1 {
+    margin-bottom: 30px;
+}
+
+.settings-section {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: white;
+    color: #1e1e2f;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.settings-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.settings-section label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.settings-section input {
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f1f1f1;
+    outline: none;
+    font-family: inherit;
+}
+
+.settings-section input:focus {
+    box-shadow: 0 0 5px rgba(32, 58, 67, 0.6);
+}
+
+.settings-section button {
+    margin-top: 20px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #1e1e2f;
+    color: white;
+    font-family: inherit;
+}
+
+.settings-section button:hover {
+    opacity: 0.9;
+}

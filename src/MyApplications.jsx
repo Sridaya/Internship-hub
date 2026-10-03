@@ -41,6 +41,11 @@ function Myapplications(){
                             : "Date unavailable"
                     }
                 </p>
+                <button
+                    onClick={() => window.open(application.apply_link, "_blank")} className="Save"
+                >
+                    View Application
+                </button>
               </div>
             ))
           )}

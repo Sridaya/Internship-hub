@@ -17,7 +17,7 @@ function Sidebar(){
             <p><Link to="/savedinternships" className='link'>❤️ Saved Internships</Link></p>
             <p><Link to="/Myapplications" className='link'>📋 My Applications</Link></p>
             <p>🛡️ Verify Internship</p>
-            <p>⚙️ Settings</p>
+            <p><Link to="/Settings" className='link'>⚙️ Settings</Link></p>
             <p onClick={handleLogout}>🚪 Logout</p>
         </div>
     )
