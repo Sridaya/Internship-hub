@@ -251,6 +251,44 @@ app.get("/api/applications/:user_id", (req, res) => {
 
     res.json(result);
 });
+
+app.put("/api/users/:id", (req, res) => {
+    const { id } = req.params;
+    const { name } = req.body;
+
+    db.prepare(`
+        UPDATE users
+        SET name = ?
+        WHERE id = ?
+    `).run(name, id);
+
+    res.json({
+        message: "Profile updated successfully"
+    });
+});
+
+app.delete("/api/users/:id", (req, res) => {
+    const { id } = req.params;
+
+    db.prepare(`
+        DELETE FROM applications
+        WHERE user_id = ?
+    `).run(id);
+
+    db.prepare(`
+        DELETE FROM password_resets
+        WHERE user_id = ?
+    `).run(id);
+
+    db.prepare(`
+        DELETE FROM users
+        WHERE id = ?
+    `).run(id);
+
+    res.json({
+        message: "Account deleted successfully"
+    });
+});
 app.listen(4000, () => {
     console.log("Server running on http://localhost:4000");
 });
