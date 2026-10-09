@@ -79,3 +79,13 @@ h1, h2, h3 {
     padding: 20px;
     border-radius: 12px;
 }
+
+.app-theme.light .home {
+    background: #f5f5f5;
+    color: #1e1e2f;
+}
+
+.app-theme.dark .home {
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+    color: white;
+}

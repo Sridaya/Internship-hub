@@ -8,6 +8,7 @@ import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword"
 import Myapplications from "./MyApplications";
 import Settings from "./Settings"
+import ThemeLayout from "./ThemeLayout";
 
 function App(){
 
@@ -16,22 +17,12 @@ function App(){
         <Routes>
             <Route path="/login" element={<Login />}/>
             <Route path="/register" element={<Register />}/>
-            <Route
-                path="/home"
-                element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/savedinternships"
-                element={isLoggedIn ? <SavedInternships /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/Myapplications"
-                element={isLoggedIn ? <Myapplications /> : <Navigate to="/login" />}
-            />
-             <Route
-                path="/Settings"
-                element={isLoggedIn ? <Settings /> : <Navigate to="/login" />}
-            />
+            <Route element={isLoggedIn ? <ThemeLayout /> : <Navigate to="/login" />}>
+    <Route path="/home" element={<Home />} />
+    <Route path="/savedinternships" element={<SavedInternships />} />
+    <Route path="/Myapplications" element={<Myapplications />} />
+    <Route path="/Settings" element={<Settings />} />
+</Route>
             <Route path="/" element={<Landing />} />
             <Route path="/forgot-password" element={<ForgotPassword />}/>
             <Route path="/reset-password/:token" element={<ResetPassword />}/>
