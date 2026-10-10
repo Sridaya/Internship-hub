@@ -6,3 +6,12 @@
 .sidebar p{
     cursor: pointer;
 }
+
+.sidebar a,
+.sidebar a:link,
+.sidebar a:visited,
+.sidebar a:hover,
+.sidebar a:active {
+    color: #e4e4e7;
+    text-decoration: none;
+}

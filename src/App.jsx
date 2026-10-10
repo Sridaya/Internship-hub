@@ -9,6 +9,7 @@ import ResetPassword from "./ResetPassword"
 import Myapplications from "./MyApplications";
 import Settings from "./Settings"
 import ThemeLayout from "./ThemeLayout";
+import VerifyInternship from "./VerifyInternship";
 
 function App(){
 
@@ -22,6 +23,7 @@ function App(){
     <Route path="/savedinternships" element={<SavedInternships />} />
     <Route path="/Myapplications" element={<Myapplications />} />
     <Route path="/Settings" element={<Settings />} />
+    <Route path="/verify-internship" element={<VerifyInternship />}/>
 </Route>
             <Route path="/" element={<Landing />} />
             <Route path="/forgot-password" element={<ForgotPassword />}/>
