@@ -6,6 +6,7 @@ function VerifyInternship() {
     const [companyName, setCompanyName] = useState("");
     const [internshipTitle, setInternshipTitle] = useState("");
     const [applicationLink, setApplicationLink] = useState("");
+    const [verificationResult, setVerificationResult] = useState(null);
 
     const handleVerify = () => {
     if (!companyName.trim() || !internshipTitle.trim() || !applicationLink.trim()) {
@@ -27,6 +28,29 @@ function VerifyInternship() {
 
 const warnings = [];
 
+try {
+    const url = new URL(applicationLink);
+    const hostname = url.hostname.toLowerCase();
+
+    const suspiciousHosts = [
+        "bit.ly",
+        "tinyurl.com",
+        "t.co"
+    ];
+
+    if (
+        suspiciousHosts.some(
+            (host) => hostname === host || hostname.endsWith("." + host)
+        )
+    ) {
+        warnings.push(
+            "This is a URL-shortening link. Check the final destination before applying."
+        );
+    }
+} catch {
+    // URL validation already handles invalid links.
+}
+
 if (/registration fee|pay to apply|security deposit/i.test(internshipTitle)) {
     warnings.push("The internship title mentions a possible payment requirement.");
 }
@@ -36,12 +60,18 @@ if (/registration fee|pay to apply|security deposit/i.test(companyName)) {
 }
 
 if (warnings.length > 0) {
-    alert("⚠️ Potential warning signs:\n\n" + warnings.join("\n"));
+    setVerificationResult({
+        status: "warning",
+        message: "Potential warning signs found.",
+        warnings: warnings
+    });
 } else {
-    alert("No obvious warning signs found in the entered details.");
+    setVerificationResult({
+        status: "clear",
+        message: "No obvious warning signs found.",
+        warnings: []
+    });
 }
-
-    alert("Internship details submitted for verification!");
 };
 
     return (
@@ -81,6 +111,26 @@ if (warnings.length > 0) {
 
                 <button onClick={handleVerify}>Verify Internship</button>
             </div>
+            {verificationResult && (
+    <div className={`verification-result ${verificationResult.status}`}>
+        <h2>
+            {verificationResult.status === "warning"
+                ? "⚠️ Warning Signs Found"
+                : "✅ No Obvious Warning Signs"}
+        </h2>
+
+        <p>{verificationResult.message}</p>
+
+        {verificationResult.warnings.map((warning, index) => (
+            <p key={index}>• {warning}</p>
+        ))}
+
+        <small>
+            This is a preliminary check, not proof that an internship is
+            genuine or fraudulent.
+        </small>
+    </div>
+)}
         </div>
     );
 }

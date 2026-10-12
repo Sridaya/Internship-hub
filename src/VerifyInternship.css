@@ -93,3 +93,31 @@
         padding: 20px;
     }
 }
+
+.verification-result {
+    max-width: 700px;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: white;
+    color: #1e1e2f;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.verification-result h2 {
+    margin-bottom: 15px;
+}
+
+.verification-result.warning {
+    border-left: 6px solid #e74c3c;
+}
+
+.verification-result.clear {
+    border-left: 6px solid #27ae60;
+}
+
+.verification-result small {
+    display: block;
+    margin-top: 15px;
+    color: #666;
+}
